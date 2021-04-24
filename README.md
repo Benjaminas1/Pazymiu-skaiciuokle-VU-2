@@ -59,6 +59,14 @@ Pagrindinis "studentai" konteineris yra surūšiuojamas mažėjimo tvarka, naudo
 | list                           | 0.046588  | 0.212908 | 2.07622 | 20.2357   | 195.663    |
 | deque                          | 0.043405  | 0.24667  | 2.74611 | 24.5702   | 285.267    |
 
+# Programos spartos palyginimas naudojant Class ir Struct. (1 rūšiavimo strategija, naudojami vector)
+
+| Konteineris                    | 100.000 | 1.000.000 |
+| :----------------------------- | :------ | :-------- |
+| Class                          | 2.36296 | 24.9818   |
+| Struct                         | 2.05499 | 21.9079   |
+
+
 # Duomenų nuskaitymas iš failo
 Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas "duomenys.txt" failas esantis "duomenys" aplanke, jeigu toks failas nerandamas, išmetama klaida. Programa atlikus veiksmus išveda kiek laiko truko įrašų nuskaitymas ir surūšiavimas, o rezultatai išvedami "rezultatai" aplanke esančiame "rezultatai.txt" faile.
 
