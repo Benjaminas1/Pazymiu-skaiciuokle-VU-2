@@ -173,7 +173,7 @@ void printResult(T students, bool printMedian, string outDir){
     out << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(0) << "Galutinis " << finalType << endl << "----------------------------------------------" << endl;
 
     for(auto student : students){
-        out << left << setw(15) << student.name << left << setw(15) << student.surname << left << setw(15) << setprecision(2) << fixed << student.finalGrade << endl;
+        out << left << setw(15) << student.getName() << left << setw(15) << student.getSurname() << left << setw(15) << setprecision(2) << fixed << student.getFinalGrade() << endl;
     }
 }
 
@@ -187,13 +187,13 @@ int wordCount(string str){
     return wc;
 }
 
-bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b){
-    if(a.name<b.name) return true;
-    else return false;
-}
+// bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b){
+//     if(a.getName()<b.getName()) return true;
+//     else return false;
+// }
 
 bool comepareTwoStudents2(StudentsFromFile a, StudentsFromFile b){
-    if(a.finalGrade>b.finalGrade) return true;
+    if(a.getFinalGrade()>b.getFinalGrade()) return true;
     else return false;
 }
 
@@ -257,13 +257,16 @@ void readFromFile(T &studentsFF, bool printMedian, string fileName){
         string line;
 
         while(getline(in, line)){
-            StudentsFromFile student;
+            
             vector<int> grades;
             double examGrade;
 
             istringstream ss(line);
+            
+            string name, surname;
+            ss >> name >> surname;
 
-            ss >> student.name >> student.surname;
+            StudentsFromFile student(name, surname);
 
             int grade;
 
@@ -274,7 +277,7 @@ void readFromFile(T &studentsFF, bool printMedian, string fileName){
             grades.pop_back();
             examGrade = grade;
             //students[studentQuantity] = student;
-            student.finalGrade = calculateFinalGrade(grades, grades.size(), examGrade, printMedian);
+            student.setFinalGrade(calculateFinalGrade(grades, grades.size(), examGrade, printMedian));
 
             studentsFF.push_back(student);
 
@@ -303,7 +306,7 @@ void splitStudents(T &students, int studentQuantity, bool printMedian){
     T goodStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0;
     for(auto student : students){
-        if(student.finalGrade<5){
+        if(student.getFinalGrade()<5){
             badStudents.push_back(student);
             badStudentsQuant++;
         }
@@ -333,7 +336,7 @@ void splitStudentsOptimisedVector(vector<StudentsFromFile> &students, int studen
     vector<StudentsFromFile> badStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0, index = 0;
     for(auto student : students){
-        if(student.finalGrade<5){
+        if(student.getFinalGrade()<5){
             badStudents.push_back(student);
             badStudentsQuant++;
             students.erase(students.begin() + index);
@@ -360,7 +363,7 @@ void splitStudentsOptimisedList(list<StudentsFromFile> &students, int studentQua
     list<StudentsFromFile> badStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0;
     for(auto it = students.begin(); it != students.end(); it++){
-        if(it->finalGrade < 5){
+        if(it->getFinalGrade() < 5){
             badStudents.push_back(*it);
             badStudentsQuant++;
             it = students.erase(it);
@@ -386,7 +389,7 @@ void splitStudentsOptimisedDeque(deque<StudentsFromFile> &students, int studentQ
     deque<StudentsFromFile> badStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0, index = 0;
     for(auto student : students){
-        if(student.finalGrade<5){
+        if(student.getFinalGrade()<5){
             badStudents.push_back(student);
             badStudentsQuant++;
             students.erase(students.begin() + index);
@@ -408,7 +411,7 @@ void splitStudentsOptimisedDeque(deque<StudentsFromFile> &students, int studentQ
 }
 
 bool lessThanFive(StudentsFromFile student){
-    if(student.finalGrade < 5) return true;
+    if(student.getFinalGrade() < 5) return true;
     else return false;
 }
 
