@@ -128,30 +128,16 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
 
 # Releases #
 
-* [v0.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.1) : pirminė programos versija.
+* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : pirminė programos versija.
 
-* [v0.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.2) :
-  * Pridėta galimybė nuskaityti duomenis iš failo.
-  * Studentai yra automatiškai išrūšiuojami pagal jų vardus.
+* [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.2) :
 
-* [v0.3](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.3) :
-  * Sukurtas `functions.cpp` failas, kuriame yra sudėtos visos programoje naudojamos funkcijos.
-  * Sukurtas `functions.h` header failas, kuriame yra saugoma studentų struct.
+* [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.5) :
 
-* [v0.4](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.4) :
-  * Sukurta funkcija leidžianti atlikti programos veikimo greičio (spartos) analizę.
-  * Sukurta funkcija leidžianti sugeneruoti atsitiktinius studentų sarašų failus (1'000, 10'000, 100'000, 1'000'000, 10'000'000 įrašų).
-  * Sukurtas studentų rūšiavimas į dvi grupes pagal galutinį balą.
-  * Sugrupuoti studentai yra atitinkamai išvedami į du skirtingus failus.
-
-* [v0.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.5) :
-  * Testavimas atliekamas naudojant tris skirtingus konteinerius: vector, list, deque.
-
-* [v1.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.0) :
-  * Testavime implementuota galimybė pasirinkti tarp 3 skirtingų duomenų rūšiavimo strategijų.
+* [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v2.0) :
 
 
-# V1.0 versijos kompiliavimas:
+# V1.1 versijos kompiliavimas:
 Windows sistemai:
 
     g++ -c main.cpp includes/functions.cpp includes/students.cpp
