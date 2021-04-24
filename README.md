@@ -128,7 +128,8 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
 
 # Releases #
 
-* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : pirminė programos versija.
+* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : 
+     * Vietoj Students struct naudojama Students class
 
 * [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.2) :
 
