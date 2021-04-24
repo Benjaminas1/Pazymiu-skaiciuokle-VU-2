@@ -31,7 +31,6 @@ int main(){
     }
     else{
         Students student;
-        StudentsFromFile tempStudent;
 
         std::cout << "Pasirinkite atspausdinti galutinio balo Vidurki(1) arba Mediana(2): ";
         printMedian = optionInput();
@@ -42,10 +41,9 @@ int main(){
 
         student.finalGrade = calculateFinalGrade(student.grades, student.homeworkQuant, student.examGrade, printMedian);
 
-        tempStudent.name = student.name;
-        tempStudent.surname = student.surname;
-        tempStudent.finalGrade = student.finalGrade;
-        cout << "final grade:  " << tempStudent.finalGrade << endl;
+        StudentsFromFile tempStudent(student.name, student.surname);
+        tempStudent.setFinalGrade(student.finalGrade);
+        cout << "final grade:  " << tempStudent.getFinalGrade() << endl;
         studentsFF.push_back(tempStudent);
 
         bool confirmation = true;
@@ -58,9 +56,8 @@ int main(){
                 //students.resize(studentQuantity+1);
                 //students[studentQuantity] = student;
                 student.finalGrade = calculateFinalGrade(student.grades, student.homeworkQuant, student.examGrade, printMedian);
-                tempStudent.name = student.name;
-                tempStudent.surname = student.surname;
-                tempStudent.finalGrade = student.finalGrade;
+                StudentsFromFile tempStudent(student.name, student.surname);
+                tempStudent.setFinalGrade(student.finalGrade);
                 studentsFF.push_back(tempStudent);
             }
         }
