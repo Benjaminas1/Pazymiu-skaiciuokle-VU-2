@@ -59,6 +59,21 @@ Pagrindinis "studentai" konteineris yra surūšiuojamas mažėjimo tvarka, naudo
 | list                           | 0.046588  | 0.212908 | 2.07622 | 20.2357   | 195.663    |
 | deque                          | 0.043405  | 0.24667  | 2.74611 | 24.5702   | 285.267    |
 
+# Programos spartos palyginimas naudojant Class ir Struct. (1 rūšiavimo strategija, naudojami vector)
+
+|                                | 100.000 | 1.000.000 |
+| :----------------------------- | :------ | :-------- |
+| Class                          | 2.36296 | 24.9818   |
+| Struct                         | 2.05499 | 21.9079   |
+
+# Programos spartos palyginimas naudojant skirtingus optimizavimo lygius
+
+| Optimizavimo lygis             | 100.000 | 1.000.000 |
+| :----------------------------- | :------ | :-------- |
+| 1                              | 2.07236 | 21.3533   |
+| 2                              | 2.03898 | 22.3506   |
+| 3                              | 2.05662 | 22.4687   |
+
 # Duomenų nuskaitymas iš failo
 Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas "duomenys.txt" failas esantis "duomenys" aplanke, jeigu toks failas nerandamas, išmetama klaida. Programa atlikus veiksmus išveda kiek laiko truko įrašų nuskaitymas ir surūšiavimas, o rezultatai išvedami "rezultatai" aplanke esančiame "rezultatai.txt" faile.
 
@@ -113,30 +128,18 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
 
 # Releases #
 
-* [v0.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.1) : pirminė programos versija.
+* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : 
+     * Vietoj Students struct naudojama Students class.
 
-* [v0.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.2) :
-  * Pridėta galimybė nuskaityti duomenis iš failo.
-  * Studentai yra automatiškai išrūšiuojami pagal jų vardus.
+* [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.2) :
+     * Implementuoti "Rule of three" operatoriai Students klasėje.
 
-* [v0.3](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.3) :
-  * Sukurtas `functions.cpp` failas, kuriame yra sudėtos visos programoje naudojamos funkcijos.
-  * Sukurtas `functions.h` header failas, kuriame yra saugoma studentų struct.
+* [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.5) :
 
-* [v0.4](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.4) :
-  * Sukurta funkcija leidžianti atlikti programos veikimo greičio (spartos) analizę.
-  * Sukurta funkcija leidžianti sugeneruoti atsitiktinius studentų sarašų failus (1'000, 10'000, 100'000, 1'000'000, 10'000'000 įrašų).
-  * Sukurtas studentų rūšiavimas į dvi grupes pagal galutinį balą.
-  * Sugrupuoti studentai yra atitinkamai išvedami į du skirtingus failus.
-
-* [v0.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v0.5) :
-  * Testavimas atliekamas naudojant tris skirtingus konteinerius: vector, list, deque.
-
-* [v1.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.0) :
-  * Testavime implementuota galimybė pasirinkti tarp 3 skirtingų duomenų rūšiavimo strategijų.
+* [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v2.0) :
 
 
-# V1.0 versijos kompiliavimas:
+# V1.2 versijos kompiliavimas:
 Windows sistemai:
 
     g++ -c main.cpp includes/functions.cpp includes/students.cpp
