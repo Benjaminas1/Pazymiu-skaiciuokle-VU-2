@@ -1,5 +1,7 @@
 #include "students.hpp"
 #include "functions.hpp"
+//#include "test_functions.hpp"
+
 
 bool confirm(){
     string yesNo;
@@ -192,10 +194,10 @@ int wordCount(string str){
 //     else return false;
 // }
 
-bool comepareTwoStudents2(StudentsFromFile a, StudentsFromFile b){
-    if(a.getFinalGrade()>b.getFinalGrade()) return true;
-    else return false;
-}
+// bool comepareTwoStudents2(StudentsFromFile a, StudentsFromFile b){
+//     if(a.getFinalGrade()>b.getFinalGrade()) return true;
+//     else return false;
+// }
 
 void generateFiles(){
     int homeworkQuant = 6;
@@ -422,7 +424,7 @@ void splitStudents3(T &students, int studentQuantity, bool printMedian){
     T badStudents;
     int badStudentsQuant = 0, index = 0;
 
-    sort(students.begin(), students.end(), comepareTwoStudents2);
+    sort(students.begin(), students.end(), comepareTwoStudents);
 
     
     auto it = find_if(students.begin(), students.end(), lessThanFive);
@@ -448,7 +450,7 @@ void splitStudents3(list<StudentsFromFile> &students, int studentQuantity, bool 
     list<StudentsFromFile> badStudents;
     int badStudentsQuant = 0, index = 0;
 
-    students.sort(comepareTwoStudents2);
+    students.sort(comepareTwoStudents);
     
     auto it = find_if(students.begin(), students.end(), lessThanFive);
     copy(it, students.end(), back_inserter(badStudents));

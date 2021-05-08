@@ -4,13 +4,6 @@
 
 using namespace std;
 
-
-// struct StudentsFromFile{
-//     string name;
-//     string surname;
-//     double finalGrade;
-// };
-
 // Studentas::galBalas realizacija
 double StudentsFromFile::getFinalGrade() const {
     return finalGrade;
@@ -29,4 +22,21 @@ bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b){
 StudentsFromFile::StudentsFromFile(std::string name,  std::string surname){
     this->name = name;
     this->surname = surname;
+}
+
+StudentsFromFile StudentsFromFile::operator=(const StudentsFromFile& fromStud) { // priskyrimo operatorius
+    // Savęs priskyrimo aptikimas
+    if (&fromStud == this) return *this;
+
+    this->name = fromStud.name;
+    this->surname = fromStud.surname;
+    this->finalGrade = fromStud.finalGrade;
+
+    return *this;
+}
+
+StudentsFromFile::StudentsFromFile(const StudentsFromFile& fromStud){ // kopijavimo
+    this->name = fromStud.name;
+    this->surname = fromStud.surname;
+    this->finalGrade = fromStud.finalGrade;
 }
