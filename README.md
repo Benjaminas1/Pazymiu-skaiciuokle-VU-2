@@ -1,14 +1,20 @@
 # Pažymiu skaičiuoklė
 Programa skirta apskaičiuoti vieno ar kelių moksleivių pažymių galutinį balą.
 
-# Programos veikimas
+- [Programos veikimas](#programos-veikimas)
+     - [Duomenų failų generavimas](#duomenų-failų-generavimas)
+     - [Testavimas](#testavimas)
+     - [Duomenų nuskaitymas iš failo](#duomenų-nuskaitymas-iš-failo)
+     - [Duomenų įvedimas rankiniu būdu](#duomenų-įvedimas-rankiniu-būdu)
+
+## Programos veikimas
 Atsidarius programą galima pasirinkti tarp skirtingų veiksmų:
 * Sugeneruoti duomenų failus
 * Atlikti testavimą
 * Nuskaityti duomenis iš failo
 * Įvesti duomenis rankiniu būdu
 
-# Duomenų failų generavimas
+### Duomenų failų generavimas
 Atsidarius programą iškart yra išmetama užklausa, ar norima sugeneruoti duomenų failus.
 
      Ar norite sugeneruoti studentu sarasu failus? (T/N): T
@@ -24,7 +30,7 @@ Sugeneruojami 5 duomenų failai iš 6 atsitiktinai sugeneruotų namų darbų ir 
      Vardas5             Pavarde5            3              4              4              6              7              2              4              
      Vardas6             Pavarde6            7              6              1              8              6              6              1      
 
-# Testavimas
+### Testavimas
  > (Visi testavimai buvo atlikti naudojant 238GB Hitachi SATA SSD, 8.00GB Dual-Channel RAM 2133MHz (Unknown brand), Intel i3 7100U @ 2.40GHz)
 
 Testuojant galima pasirinkti tarp 3 duomenų rūšiavimo strategijų:
@@ -74,7 +80,7 @@ Pagrindinis "studentai" konteineris yra surūšiuojamas mažėjimo tvarka, naudo
 | 2                              | 2.03898 | 22.3506   |
 | 3                              | 2.05662 | 22.4687   |
 
-# Duomenų nuskaitymas iš failo
+### Duomenų nuskaitymas iš failo
 Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas "duomenys.txt" failas esantis "duomenys" aplanke, jeigu toks failas nerandamas, išmetama klaida. Programa atlikus veiksmus išveda kiek laiko truko įrašų nuskaitymas ir surūšiavimas, o rezultatai išvedami "rezultatai" aplanke esančiame "rezultatai.txt" faile.
 
      Ar norite kad duomenys butu nuskaityti is failo? (T/N): T
@@ -83,7 +89,7 @@ Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas "duomenys.txt" failas esa
      Irasu surusiavimo laikas: 0.003517
 
 
-# Duomenų įvedimas rankiniu būdu
+### Duomenų įvedimas rankiniu būdu
 Pasirinkus duomenų įvedimą rankiniu būdu reikia įvesti šiuos duomenis:
 * Studento vardas pavardė
 * Namų darbų pažymiai
@@ -129,24 +135,24 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
 # Releases #
 
 * [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : 
-     * Vietoj Students struct naudojama Students class.
+     * Vietoj Students struct naudojama 'Students' class.
 
 * [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.2) :
-     * Implementuoti "Rule of three" operatoriai Students klasėje.
+     * Implementuoti "Rule of three" operatoriai 'Students' klasėje.
 
 * [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.5) :
+     * Klasė 'Students' padalinta į abstrakčią klasę 'Person' ir į jos išvestinę klasę 'Students'.
 
 * [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v2.0) :
 
 
-# V1.2 versijos kompiliavimas:
+# V1.5 versijos kompiliavimas:
 Windows sistemai:
 
-    g++ -c main.cpp includes/functions.cpp includes/students.cpp
-    g++ -o main main.o functions.o students.o
+    g++ -o main main.cpp includes/*.cpp
       
 Linux sistemai:
 
     make
     ./main
-
+    
