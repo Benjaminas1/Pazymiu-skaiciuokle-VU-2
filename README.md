@@ -138,16 +138,16 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
 
 ### Releases
 
-* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : 
+* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.1) : 
      * Vietoj Students struct naudojama 'Students' class.
 
-* [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.2) :
+* [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.2) :
      * Implementuoti "Rule of three" operatoriai 'Students' klasėje.
 
-* [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.5) :
+* [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.5) :
      * Klasė 'Students' padalinta į abstrakčią klasę 'Person' ir į jos išvestinę klasę 'Students'.
 
-* [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v2.0) :
+* [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v2.0) :
 
 ---
 
