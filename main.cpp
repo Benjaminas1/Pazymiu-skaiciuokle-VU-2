@@ -6,12 +6,11 @@
 int main(){
     long int studentQuantity = 0;
 
-    vector<StudentsFromFile> studentsFF;
+    vector<Students> studentsFF;
     //studentsFF.resize(10000000);
     bool printMedian;
     //Students* studentsArray = new Students[studentQuantity];
 
-    
 
     std::cout << "Ar norite sugeneruoti studentu sarasu failus? (T/N): ";
     if(confirm()) generateFiles();
@@ -31,7 +30,7 @@ int main(){
         readFromFile(studentsFF, printMedian, "duomenys/duomenys.txt");
     }
     else{
-        Students student;
+        StudentsManual student;
 
         std::cout << "Pasirinkite atspausdinti galutinio balo Vidurki(1) arba Mediana(2): ";
         printMedian = optionInput();
@@ -42,7 +41,7 @@ int main(){
 
         student.finalGrade = calculateFinalGrade(student.grades, student.homeworkQuant, student.examGrade, printMedian);
 
-        StudentsFromFile tempStudent(student.name, student.surname);
+        Students tempStudent(student.name, student.surname);
         tempStudent.setFinalGrade(student.finalGrade);
         cout << "final grade:  " << tempStudent.getFinalGrade() << endl;
         studentsFF.push_back(tempStudent);
@@ -52,12 +51,12 @@ int main(){
             std::cout << "Ar norite prideti dar viena moksleivi? (T/N): ";
             confirmation = confirm();
             if(confirmation){
-                Students student;
+                StudentsManual student;
                 newStudent(student);
                 //students.resize(studentQuantity+1);
                 //students[studentQuantity] = student;
                 student.finalGrade = calculateFinalGrade(student.grades, student.homeworkQuant, student.examGrade, printMedian);
-                StudentsFromFile tempStudent(student.name, student.surname);
+                Students tempStudent(student.name, student.surname);
                 tempStudent.setFinalGrade(student.finalGrade);
                 studentsFF.push_back(tempStudent);
             }

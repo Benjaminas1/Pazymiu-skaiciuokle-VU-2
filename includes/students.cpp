@@ -5,26 +5,26 @@
 using namespace std;
 
 // Studentas::galBalas realizacija
-double StudentsFromFile::getFinalGrade() const {
+double Students::getFinalGrade() const {
     return finalGrade;
 }
 
-void StudentsFromFile::setFinalGrade(double finalGrade){
+void Students::setFinalGrade(double finalGrade){
     this->finalGrade = finalGrade;
 }
 
 // Ne Studentas member funkcija, bet dirba su Studentas objektais, todėl realizacija čia
-bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b){
+bool comepareTwoStudents(Students a, Students b){
     if(a.getName()<b.getName()) return true;
     else return false;
 }
 
-StudentsFromFile::StudentsFromFile(std::string name,  std::string surname){
+Students::Students(std::string name,  std::string surname){
     this->name = name;
     this->surname = surname;
 }
 
-StudentsFromFile StudentsFromFile::operator=(const StudentsFromFile& fromStud) { // priskyrimo operatorius
+Students Students::operator=(const Students& fromStud) { // priskyrimo operatorius
     // Savęs priskyrimo aptikimas
     if (&fromStud == this) return *this;
 
@@ -35,7 +35,7 @@ StudentsFromFile StudentsFromFile::operator=(const StudentsFromFile& fromStud) {
     return *this;
 }
 
-StudentsFromFile::StudentsFromFile(const StudentsFromFile& fromStud){ // kopijavimo
+Students::Students(const Students& fromStud){ // kopijavimo
     this->name = fromStud.name;
     this->surname = fromStud.surname;
     this->finalGrade = fromStud.finalGrade;

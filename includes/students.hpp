@@ -7,7 +7,7 @@
 using namespace std;
 
 // Students struct for main.cpp manual input
-struct Students{
+struct StudentsManual{
     string name;
     string surname;
     int homeworkQuant;
@@ -16,23 +16,48 @@ struct Students{
     double finalGrade;
 };
 
-class StudentsFromFile {
+// class Students {
+// private:
+//     string name;
+//     string surname;
+//     double finalGrade;
+// public:
+//     Students() : finalGrade(0) { }  // default konstruktorius
+//     Students(const Students& fromStud); // copy konstruktorius
+//     Students(std::string fName,  std::string lName);
+//     inline std::string getName() const { return name; }    // get'eriai, inline
+//     inline std::string getSurname() const { return surname; }  // get'eriai, inline
+//     double getFinalGrade() const;// get'eriai
+//     void setFinalGrade(double finalGrade);
+//     bool comepareTwoStudents(Students a, Students b);
+//     Students operator=(const Students& fromStud); // assign operatorius
+//     ~Students(){}; // destruktorius
+// };
 
-private:
+
+class Person {
+protected:
     string name;
     string surname;
-    double finalGrade;
 public:
-    StudentsFromFile() : finalGrade(0) { }  // default konstruktorius
-    StudentsFromFile(const StudentsFromFile& fromStud); // copy konstruktorius
-    StudentsFromFile(std::string fName,  std::string lName);
     inline std::string getName() const { return name; }    // get'eriai, inline
     inline std::string getSurname() const { return surname; }  // get'eriai, inline
+    virtual void AbstractMemberFunction() = 0;
+};
+
+class Students : public Person {
+private:
+    double finalGrade;
+public:
+    Students() : finalGrade(0) { }  // default konstruktorius
+    Students(const Students& fromStud); // copy konstruktorius
+    Students(std::string fName,  std::string lName);
     double getFinalGrade() const;// get'eriai
     void setFinalGrade(double finalGrade);
-    bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b);
-    StudentsFromFile operator=(const StudentsFromFile& fromStud); // assign operatorius
-    ~StudentsFromFile(){}; // destruktorius
+    bool comepareTwoStudents(Students a, Students b);
+    Students operator=(const Students& fromStud); // assign operatorius
+    ~Students(){}; // destruktorius
+    virtual void AbstractMemberFunction() {};
 };
 
 #endif

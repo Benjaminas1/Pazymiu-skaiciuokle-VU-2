@@ -28,9 +28,9 @@ void isGrade(int &grade);
 
 void examResult(Students &student);
 
-bool fillWithRandomNumbers(Students &student, int gradeQuant = 10);
+bool fillWithRandomNumbers(StudentsManual &student, int gradeQuant = 10);
 
-void newStudent(Students &student);
+void newStudent(StudentsManual &student);
 
 double calculateFinalGrade(vector<int> grades, int homeworkCount, int exam, bool printMedian);
 
@@ -39,7 +39,7 @@ void printResult(T students, bool printMedian, string outDir = "rezultatai/rezul
 
 int wordCount(string str);
 
-bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b);
+bool comepareTwoStudents(Students a, Students b);
 
 void generateFiles();
 
