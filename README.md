@@ -1,14 +1,19 @@
 # Pažymiu skaičiuoklė
 Programa skirta apskaičiuoti vieno ar kelių moksleivių pažymių galutinį balą.
 
-# Programos veikimas
-Atsidarius programą galima pasirinkti tarp skirtingų veiksmų:
-* Sugeneruoti duomenų failus
-* Atlikti testavimą
-* Nuskaityti duomenis iš failo
-* Įvesti duomenis rankiniu būdu
+## Turinys
+* Programos veikimas
+     * [Duomenų failų generavimas](#duomenų-failų-generavimas)
+     * [Testavimas](#testavimas)
+     * [Duomenų nuskaitymas iš failo](#duomenų-nuskaitymas-iš-failo)
+     * [Duomenų įvedimas rankiniu būdu](#duomenų-įvedimas-rankiniu-būdu)
+* Programos versijos ir naujausios versijos paleidimas
+     * [Releases](#releases)
+     * [Kompiliavimas](#v15-versijos-kompiliavimas)
 
-# Duomenų failų generavimas
+---
+
+### Duomenų failų generavimas
 Atsidarius programą iškart yra išmetama užklausa, ar norima sugeneruoti duomenų failus.
 
      Ar norite sugeneruoti studentu sarasu failus? (T/N): T
@@ -24,7 +29,9 @@ Sugeneruojami 5 duomenų failai iš 6 atsitiktinai sugeneruotų namų darbų ir 
      Vardas5             Pavarde5            3              4              4              6              7              2              4              
      Vardas6             Pavarde6            7              6              1              8              6              6              1      
 
-# Testavimas
+---
+
+### Testavimas
  > (Visi testavimai buvo atlikti naudojant 238GB Hitachi SATA SSD, 8.00GB Dual-Channel RAM 2133MHz (Unknown brand), Intel i3 7100U @ 2.40GHz)
 
 Testuojant galima pasirinkti tarp 3 duomenų rūšiavimo strategijų:
@@ -59,14 +66,14 @@ Pagrindinis "studentai" konteineris yra surūšiuojamas mažėjimo tvarka, naudo
 | list                           | 0.046588  | 0.212908 | 2.07622 | 20.2357   | 195.663    |
 | deque                          | 0.043405  | 0.24667  | 2.74611 | 24.5702   | 285.267    |
 
-# Programos spartos palyginimas naudojant Class ir Struct. (1 rūšiavimo strategija, naudojami vector)
+### Programos spartos palyginimas naudojant Class ir Struct. (1 rūšiavimo strategija, naudojami vector)
 
-|                                | 100.000 | 1.000.000 |
+| Konteinerio tipas              | 100.000 | 1.000.000 |
 | :----------------------------- | :------ | :-------- |
 | Class                          | 2.36296 | 24.9818   |
 | Struct                         | 2.05499 | 21.9079   |
 
-# Programos spartos palyginimas naudojant skirtingus optimizavimo lygius
+### Programos spartos palyginimas naudojant skirtingus optimizavimo lygius
 
 | Optimizavimo lygis             | 100.000 | 1.000.000 |
 | :----------------------------- | :------ | :-------- |
@@ -74,7 +81,9 @@ Pagrindinis "studentai" konteineris yra surūšiuojamas mažėjimo tvarka, naudo
 | 2                              | 2.03898 | 22.3506   |
 | 3                              | 2.05662 | 22.4687   |
 
-# Duomenų nuskaitymas iš failo
+---
+
+### Duomenų nuskaitymas iš failo
 Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas "duomenys.txt" failas esantis "duomenys" aplanke, jeigu toks failas nerandamas, išmetama klaida. Programa atlikus veiksmus išveda kiek laiko truko įrašų nuskaitymas ir surūšiavimas, o rezultatai išvedami "rezultatai" aplanke esančiame "rezultatai.txt" faile.
 
      Ar norite kad duomenys butu nuskaityti is failo? (T/N): T
@@ -82,8 +91,9 @@ Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas "duomenys.txt" failas esa
      Irasu nuskaitymo laikas: 0.007504
      Irasu surusiavimo laikas: 0.003517
 
+---
 
-# Duomenų įvedimas rankiniu būdu
+### Duomenų įvedimas rankiniu būdu
 Pasirinkus duomenų įvedimą rankiniu būdu reikia įvesti šiuos duomenis:
 * Studento vardas pavardė
 * Namų darbų pažymiai
@@ -124,29 +134,30 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
      Benjaminas     Racas          7.71
      Vytautas       Miltinis       8.80
 
-    
+---
 
-# Releases #
+### Releases
 
-* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.1) : 
-     * Vietoj Students struct naudojama Students class.
+* [v1.1](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.1) : 
+     * Vietoj Students struct naudojama 'Students' class.
 
-* [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.2) :
-     * Implementuoti "Rule of three" operatoriai Students klasėje.
+* [v1.2](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.2) :
+     * Implementuoti "Rule of three" operatoriai 'Students' klasėje.
 
-* [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v1.5) :
+* [v1.5](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.5) :
+     * Klasė 'Students' padalinta į abstrakčią klasę 'Person' ir į jos išvestinę klasę 'Students'.
 
-* [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU/releases/tag/v2.0) :
+* [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v2.0) :
 
+---
 
-# V1.2 versijos kompiliavimas:
+### V1.5 versijos kompiliavimas:
 Windows sistemai:
 
-    g++ -c main.cpp includes/functions.cpp includes/students.cpp
-    g++ -o main main.o functions.o students.o
+    g++ -o main main.cpp includes/*.cpp
       
 Linux sistemai:
 
     make
     ./main
-
+    
