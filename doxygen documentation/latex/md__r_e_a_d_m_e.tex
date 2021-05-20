@@ -1,0 +1,210 @@
+Programa skirta apskaičiuoti vieno ar kelių moksleivių pažymių galutinį balą.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Turinys}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Programos veikimas
+\begin{DoxyItemize}
+\item \href{\#duomen\%C5\%B3-fail\%C5\%B3-generavimas}{\texttt{ Duomenų failų generavimas}}
+\item \href{\#testavimas}{\texttt{ Testavimas}}
+\item \href{\#duomen\%C5\%B3-nuskaitymas-i\%C5\%A1-failo}{\texttt{ Duomenų nuskaitymas iš failo}}
+\item \href{\#duomen\%C5\%B3-\%C4\%AFvedimas-rankiniu-b\%C5\%ABdu}{\texttt{ Duomenų įvedimas rankiniu būdu}}
+\end{DoxyItemize}
+\item Programos versijos ir naujausios versijos paleidimas
+\begin{DoxyItemize}
+\item \href{\#releases}{\texttt{ Releases}}
+\item \href{\#v15-versijos-kompiliavimas}{\texttt{ Kompiliavimas}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{Duomenų failų generavimas}\label{md__r_e_a_d_m_e_autotoc_md3}
+Atsidarius programą iškart yra išmetama užklausa, ar norima sugeneruoti duomenų failus. \begin{DoxyVerb} Ar norite sugeneruoti studentu sarasu failus? (T/N): T
+ Irasu sugeneravimo laikas: 160.16
+\end{DoxyVerb}
+ Sugeneruojami 5 duomenų failai iš 6 atsitiktinai sugeneruotų namų darbų ir egzamino pažymių. Šie failai atitinkamai sugeneruojami iš 10000000, 1000000, 100000, 10000, 1000 studentų. \begin{DoxyVerb} Vardas              Pavarde             ND0            ND1            ND2            ND3            ND4            ND5            Egz.           
+ Vardas1             Pavarde1            2              4              8              2              1              2              5              
+ Vardas2             Pavarde2            3              1              2              5              3              4              1              
+ Vardas3             Pavarde3            8              8              6              5              1              4              5              
+ Vardas4             Pavarde4            3              6              1              9              3              3              9              
+ Vardas5             Pavarde5            3              4              4              6              7              2              4              
+ Vardas6             Pavarde6            7              6              1              8              6              6              1      
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{Testavimas}\label{md__r_e_a_d_m_e_autotoc_md4}
+\begin{quote}
+(Visi testavimai buvo atlikti naudojant 238GB Hitachi SATA SSD, 8.\+00\+GB Dual-\/\+Channel RAM 2133MHz (Unknown brand), Intel i3 7100U @ 2.\+40\+GHz) \end{quote}
+Testuojant galima pasirinkti tarp 3 duomenų rūšiavimo strategijų\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{1 strategija}}
+\end{DoxyItemize}
+
+Studentų konteineris skaidomas į kitus du konteinerius -\/ \char`\"{}blogi\+\_\+studentai\char`\"{} ir \char`\"{}geri\+\_\+studentai\char`\"{}. Tokiu būdu tas pats studentas yra dvejuose konteineriuose\+: bendrame \char`\"{}studentai\char`\"{} ir viename iš suskaidytų.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteineris   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000.\+000    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteineris   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000.\+000    }\\\cline{1-6}
+\endhead
+vector   &0.\+03773   &0.\+362848   &2.\+05499   &21.\+9079   &212.\+784    \\\cline{1-6}
+list   &0.\+050398   &0.\+243815   &1.\+84089   &19.\+9467   &163.\+67    \\\cline{1-6}
+deque   &0.\+041801   &0.\+236337   &2.\+5052   &22.\+5667   &257.\+109   \\\cline{1-6}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{2 strategija}}
+\end{DoxyItemize}
+
+Bendro studentų konteinerio rūšiavimas atliekamas panaudojant tik vieną naują konteinerį -\/ \char`\"{}blogi\+\_\+studenta\char`\"{}. Tokiu būdu, jei studentas yra blogas, jis įkeliamas į naująjį \char`\"{}blogi\+\_\+studentai\char`\"{} konteinerį ir ištrinamas iš bendro \char`\"{}studentai\char`\"{} konteinerio.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteineris   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteineris   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000    }\\\cline{1-4}
+\endhead
+vector   &0.\+038895   &0.\+726444   &55.\+9269    \\\cline{1-4}
+list   &0.\+028612   &0.\+20331   &1.\+85844    \\\cline{1-4}
+deque   &0.\+056739   &0.\+776314   &56.\+8899   \\\cline{1-4}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{3 strategija}}
+\end{DoxyItemize}
+
+Pagrindinis \char`\"{}studentai\char`\"{} konteineris yra surūšiuojamas mažėjimo tvarka, naudojant std\+::find\+\_\+if ir std\+::copy algoritmus surandami visi blogi studentai ir perkeliami į naujai sukurta \char`\"{}blogi\+\_\+studentai\char`\"{} konteinerį, galiausiai pagrindinio \char`\"{}studentai\char`\"{} konteinerio dydis sumazinamas, kad jame liktų tik geri studentai.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteineris   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000.\+000    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteineris   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 10.\+000.\+000    }\\\cline{1-6}
+\endhead
+vector   &0.\+034552   &0.\+284003   &2.\+12223   &19.\+4143   &224.\+023    \\\cline{1-6}
+list   &0.\+046588   &0.\+212908   &2.\+07622   &20.\+2357   &195.\+663    \\\cline{1-6}
+deque   &0.\+043405   &0.\+24667   &2.\+74611   &24.\+5702   &285.\+267   \\\cline{1-6}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{Programos spartos palyginimas naudojant Class ir Struct. (1 rūšiavimo strategija, naudojami vector)}\label{md__r_e_a_d_m_e_autotoc_md5}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteinerio tipas   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Konteinerio tipas   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000    }\\\cline{1-3}
+\endhead
+Class   &2.\+36296   &24.\+9818    \\\cline{1-3}
+Struct   &2.\+05499   &21.\+9079   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{Programos spartos palyginimas naudojant skirtingus optimizavimo lygius}\label{md__r_e_a_d_m_e_autotoc_md6}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Optimizavimo lygis   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Optimizavimo lygis   }&\cellcolor{\tableheadbgcolor}\textbf{ 100.\+000   }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+000.\+000    }\\\cline{1-3}
+\endhead
+1   &2.\+07236   &21.\+3533    \\\cline{1-3}
+2   &2.\+03898   &22.\+3506    \\\cline{1-3}
+3   &2.\+05662   &22.\+4687   \\\cline{1-3}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{Duomenų nuskaitymas iš failo}\label{md__r_e_a_d_m_e_autotoc_md8}
+Pasirinkus nuskaitymą iš duomenų failo, nuskaitomas \char`\"{}duomenys.\+txt\char`\"{} failas esantis \char`\"{}duomenys\char`\"{} aplanke, jeigu toks failas nerandamas, išmetama klaida. Programa atlikus veiksmus išveda kiek laiko truko įrašų nuskaitymas ir surūšiavimas, o rezultatai išvedami \char`\"{}rezultatai\char`\"{} aplanke esančiame \char`\"{}rezultatai.\+txt\char`\"{} faile. \begin{DoxyVerb} Ar norite kad duomenys butu nuskaityti is failo? (T/N): T
+ Pasirinkite atspausdinti galutinio balo Vidurki(1) arba Mediana(2): 2
+ Irasu nuskaitymo laikas: 0.007504
+ Irasu surusiavimo laikas: 0.003517
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{Duomenų įvedimas rankiniu būdu}\label{md__r_e_a_d_m_e_autotoc_md9}
+Pasirinkus duomenų įvedimą rankiniu būdu reikia įvesti šiuos duomenis\+:
+\begin{DoxyItemize}
+\item Studento vardas pavardė
+\item Namų darbų pažymiai
+\item Egzamino rezultatas
+\end{DoxyItemize}
+
+Taip pat yra galimybe, kad pažymiai būtų sugeneruojami atsitiktiniu būdu
+
+Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arba medianą. \begin{DoxyVerb} Iveskite studento varda ir pavarde: Vaidotas Girinis
+ Ar zinomas namu darbu kiekis? (T/N): T
+ Iveskite namu darbu kieki: ė
+ Ivesti duomenys yra neteisingo formato, iveskite skaiciu (ne mazesni nei 1): 4
+ Ar norite kad mokinio balai butu sugeneruojami atsitiktiniu budu? (T/N): N
+ Iveskite namu darbu pazymius:
+ 5 8 10 7
+ Iveskite egzamino rezultata: 10
+ Ar norite prideti dar viena moksleivi? (T/N): T
+ Iveskite studento varda ir pavarde: Benjaminas Racas
+ Ar zinomas namu darbu kiekis? (T/N): N
+ Ar norite kad mokinio balai butu sugeneruojami atsitiktiniu budu? (T/N): T
+ Ar norite prideti dar viena moksleivi? (T/N): T
+ Iveskite studento varda ir pavarde: Vytautas Miltinis
+ Ar zinomas namu darbu kiekis? (T/N): N
+ Ar norite kad mokinio balai butu sugeneruojami atsitiktiniu budu? (T/N): N
+ Iveskite namu darbu pazymius:
+ 10
+ 8
+ 10
+ 6
+ -1
+ Iveskite egzamino rezultata: 9
+ Ar norite prideti dar viena moksleivi? (T/N): N
+ Pasirinkite atspausdinti galutinio balo Vidurki(1) arba Mediana(2): 1
+ Vardas         Pavarde        Galutinis (Vid.)
+ ----------------------------------------------
+ Vaidotas       Girinis        9.07
+ Benjaminas     Racas          7.71
+ Vytautas       Miltinis       8.80
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{Releases}\label{md__r_e_a_d_m_e_autotoc_md10}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.1}{\texttt{ v1.\+1}} \+:
+\begin{DoxyItemize}
+\item Vietoj \mbox{\hyperlink{class_students}{Students}} struct naudojama \textquotesingle{}\mbox{\hyperlink{class_students}{Students}}\textquotesingle{} class.
+\end{DoxyItemize}
+\item \href{https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.2}{\texttt{ v1.\+2}} \+:
+\begin{DoxyItemize}
+\item Implementuoti \char`\"{}\+Rule of three\char`\"{} operatoriai \textquotesingle{}\mbox{\hyperlink{class_students}{Students}}\textquotesingle{} klasėje.
+\end{DoxyItemize}
+\item \href{https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v1.5}{\texttt{ v1.\+5}} \+:
+\begin{DoxyItemize}
+\item Klasė \textquotesingle{}\mbox{\hyperlink{class_students}{Students}}\textquotesingle{} padalinta į abstrakčią klasę \textquotesingle{}\mbox{\hyperlink{class_person}{Person}}\textquotesingle{} ir į jos išvestinę klasę \textquotesingle{}\mbox{\hyperlink{class_students}{Students}}\textquotesingle{}.
+\end{DoxyItemize}
+\item \href{https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v2.0}{\texttt{ v2.\+0}} \+:
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{V1.\+5 versijos kompiliavimas\+:}\label{md__r_e_a_d_m_e_autotoc_md12}
+Windows sistemai\+: \begin{DoxyVerb}g++ -o main main.cpp includes/*.cpp
+\end{DoxyVerb}
+ Linux sistemai\+: \begin{DoxyVerb}make
+./main
+\end{DoxyVerb}
+ 
