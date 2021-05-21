@@ -148,10 +148,12 @@ Galutiniam balui atspausdinti galima pasirinkti naudoti visų balų vidurkį arb
      * Klasė 'Students' padalinta į abstrakčią klasę 'Person' ir į jos išvestinę klasę 'Students'.
 
 * [v2.0](https://github.com/Benjaminas1/Pazymiu-skaiciuokle-VU-2/releases/tag/v2.0) :
-
+     * Sukurta Doxygen dokumentacija.
+     * Implementuoti google unit testai.
+     * Sukurtas automatinis įdiegimo failas.
 ---
 
-### V1.5 versijos kompiliavimas:
+### V2.0 versijos kompiliavimas:
 Windows sistemai:
 
     g++ -o main main.cpp includes/*.cpp
@@ -161,3 +163,6 @@ Linux sistemai:
     make
     ./main
     
+### V2.0 versijos automatinis instaliavimas:
+Atsidarius install aplanką projekto repozitorijoj paleisti setup.exe arba Pazymiu_Skaiciuokle_Install_Setup.msi.
+Suinstaliuota programa atsiras darbalaukyje.
