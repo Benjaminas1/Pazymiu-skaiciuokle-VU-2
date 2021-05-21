@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\includes\functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\includes\students.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\includes\functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\includes\students.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{EBE08ACE-90CB-30A9-BA2B-AE473D5AFB38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{67F043E7-810D-371A-899B-8A2FFE969DE2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

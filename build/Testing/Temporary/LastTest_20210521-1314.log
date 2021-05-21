@@ -1,0 +1,31 @@
+Start testing: May 21 16:14 FLE Daylight Time
+----------------------------------------------------------
+1/1 Testing: Tests
+1/1 Test: Tests
+Command: "C:/Users/Benjaminas/Documents/GitHub/Pazymiu-skaiciuokle-VU-2/build/test/Release/Tests.exe"
+Directory: C:/Users/Benjaminas/Documents/GitHub/Pazymiu-skaiciuokle-VU-2/build/test
+"Tests" start time: May 21 16:14 FLE Daylight Time
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\googletest\googletest\src\gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from StudentsClassTest
+[ RUN      ] StudentsClassTest.CopyConstructor
+[       OK ] StudentsClassTest.CopyConstructor (0 ms)
+[ RUN      ] StudentsClassTest.FinalGradeSetGet
+[       OK ] StudentsClassTest.FinalGradeSetGet (0 ms)
+[----------] 2 tests from StudentsClassTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 2 tests.
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"Tests" end time: May 21 16:14 FLE Daylight Time
+"Tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 21 16:14 FLE Daylight Time
