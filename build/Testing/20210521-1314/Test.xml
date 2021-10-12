@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20210521-1314-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.20.2"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="DESKTOP-L61UN3U"
+	OSRelease=" Professional"
+	OSVersion=" (Build 18363)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="8"
+	ProcessorCacheSize="96"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="25531"
+	TotalPhysicalMemory="16315"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3393"
+	>
+	<Testing>
+		<StartDateTime>May 21 16:14 FLE Daylight Time</StartDateTime>
+		<StartTestTime>1621602850</StartTestTime>
+		<TestList>
+			<Test>./test/Tests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>Tests</Name>
+			<Path>./test</Path>
+			<FullName>./test/Tests</FullName>
+			<FullCommandLine>C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\build\test\Release\Tests.exe</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0563284</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>C:\Users\Benjaminas\Documents\GitHub\Pazymiu-skaiciuokle-VU-2\build\test\Release\Tests.exe</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNUcFOwzAMvfcrfNwOrWBHJA7QQZGQYFopl6ZCWWaqsDSZYgc0vp52nSY6hNZ3cuJnPz97GazVtoZGajuZwrt3DaRXoiD0JG7RfshGW0li7lRo0DKJTPNDWImF/N41OsS0kVrp4DYG49cinonaudogI/HvkLwSdRe9dUqJUlF5fUQFy8MYM+g41M9xuX8ABc2YRGV8RAWZcStp+jzaT+2d7aYDQo7D9oQ8aJpzWHc+UiOJXtr/qIRl8QR7VH/TSeq2u9RZYh8UO9/Sezw/jqHD5AIamp4TuW+XbDIv15gjZ8jnVE75R5nxvvsSYMfSTKNx62WUPl67Lzu83r9XAy9tMhRqjS1u8vxu3i3iUJhEP0ln1aw=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>May 21 16:14 FLE Daylight Time</EndDateTime>
+		<EndTestTime>1621602850</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

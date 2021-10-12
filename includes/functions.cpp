@@ -1,5 +1,7 @@
 #include "students.hpp"
 #include "functions.hpp"
+//#include "test_functions.hpp"
+
 
 bool confirm(){
     string yesNo;
@@ -59,13 +61,13 @@ void isGrade(int &grade){
 
 //new ones
 
-void examResult(Students &student){
+void examResult(StudentsManual &student){
     cout << "Iveskite egzamino rezultata: ";
     student.examGrade = numberInput(false);
     isGrade(student.examGrade);
 }
 
-bool fillWithRandomNumbers(Students &student, int gradeQuant){
+bool fillWithRandomNumbers(StudentsManual &student, int gradeQuant){
     cout << "Ar norite kad mokinio balai butu sugeneruojami atsitiktiniu budu? (T/N): ";
     bool confirmation = confirm();
 
@@ -87,7 +89,7 @@ bool fillWithRandomNumbers(Students &student, int gradeQuant){
     return false;
 }
 
-void newStudent(Students &student){
+void newStudent(StudentsManual &student){
     cout << "Iveskite studento varda ir pavarde: ";
     cin >> student.name >> student.surname;
 
@@ -187,15 +189,15 @@ int wordCount(string str){
     return wc;
 }
 
-// bool comepareTwoStudents(StudentsFromFile a, StudentsFromFile b){
+// bool comepareTwoStudents(Students a, Students b){
 //     if(a.getName()<b.getName()) return true;
 //     else return false;
 // }
 
-bool comepareTwoStudents2(StudentsFromFile a, StudentsFromFile b){
-    if(a.getFinalGrade()>b.getFinalGrade()) return true;
-    else return false;
-}
+// bool comepareTwoStudents2(Students a, Students b){
+//     if(a.getFinalGrade()>b.getFinalGrade()) return true;
+//     else return false;
+// }
 
 void generateFiles(){
     int homeworkQuant = 6;
@@ -266,7 +268,7 @@ void readFromFile(T &studentsFF, bool printMedian, string fileName){
             string name, surname;
             ss >> name >> surname;
 
-            StudentsFromFile student(name, surname);
+            Students student(name, surname);
 
             int grade;
 
@@ -330,10 +332,10 @@ void splitStudents(T &students, int studentQuantity, bool printMedian){
     goodStudents.clear();
 }
 
-void splitStudentsOptimisedVector(vector<StudentsFromFile> &students, int studentQuantity, bool printMedian){
+void splitStudentsOptimisedVector(vector<Students> &students, int studentQuantity, bool printMedian){
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-    vector<StudentsFromFile> badStudents;
+    vector<Students> badStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0, index = 0;
     for(auto student : students){
         if(student.getFinalGrade()<5){
@@ -357,10 +359,10 @@ void splitStudentsOptimisedVector(vector<StudentsFromFile> &students, int studen
     students.clear();
 }
 
-void splitStudentsOptimisedList(list<StudentsFromFile> &students, int studentQuantity, bool printMedian){
+void splitStudentsOptimisedList(list<Students> &students, int studentQuantity, bool printMedian){
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-    list<StudentsFromFile> badStudents;
+    list<Students> badStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0;
     for(auto it = students.begin(); it != students.end(); it++){
         if(it->getFinalGrade() < 5){
@@ -383,10 +385,10 @@ void splitStudentsOptimisedList(list<StudentsFromFile> &students, int studentQua
     students.clear();
 }
 
-void splitStudentsOptimisedDeque(deque<StudentsFromFile> &students, int studentQuantity, bool printMedian){
+void splitStudentsOptimisedDeque(deque<Students> &students, int studentQuantity, bool printMedian){
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-    deque<StudentsFromFile> badStudents;
+    deque<Students> badStudents;
     int goodStudentsQuant = 0, badStudentsQuant = 0, index = 0;
     for(auto student : students){
         if(student.getFinalGrade()<5){
@@ -410,7 +412,7 @@ void splitStudentsOptimisedDeque(deque<StudentsFromFile> &students, int studentQ
     students.clear();
 }
 
-bool lessThanFive(StudentsFromFile student){
+bool lessThanFive(Students student){
     if(student.getFinalGrade() < 5) return true;
     else return false;
 }
@@ -422,7 +424,7 @@ void splitStudents3(T &students, int studentQuantity, bool printMedian){
     T badStudents;
     int badStudentsQuant = 0, index = 0;
 
-    sort(students.begin(), students.end(), comepareTwoStudents2);
+    sort(students.begin(), students.end(), comepareTwoStudents);
 
     
     auto it = find_if(students.begin(), students.end(), lessThanFive);
@@ -442,13 +444,13 @@ void splitStudents3(T &students, int studentQuantity, bool printMedian){
     students.clear();
 }
 
-void splitStudents3(list<StudentsFromFile> &students, int studentQuantity, bool printMedian){
+void splitStudents3(list<Students> &students, int studentQuantity, bool printMedian){
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-    list<StudentsFromFile> badStudents;
+    list<Students> badStudents;
     int badStudentsQuant = 0, index = 0;
 
-    students.sort(comepareTwoStudents2);
+    students.sort(comepareTwoStudents);
     
     auto it = find_if(students.begin(), students.end(), lessThanFive);
     copy(it, students.end(), back_inserter(badStudents));
@@ -478,7 +480,7 @@ void programTestVector(int size, string fileName, int strategy){
     cout << "Pradedamas testavimas su " << size << " duomenu:" << endl;
     cout << "- Naudojant vector: " << endl;
     begin = std::chrono::steady_clock::now();
-    vector<StudentsFromFile> studentsVector;
+    vector<Students> studentsVector;
     readFromFile(studentsVector, false, fileName);
     sort(studentsVector.begin(), studentsVector.end(), comepareTwoStudents);
 
@@ -499,7 +501,7 @@ void programTestList(int size, string fileName, int strategy){
 
     begin = std::chrono::steady_clock::now();
     cout << "- Naudojant list: " << endl;
-    list<StudentsFromFile> studentsList;
+    list<Students> studentsList;
     readFromFile(studentsList, false, fileName);
     studentsList.sort(comepareTwoStudents);
 
@@ -522,7 +524,7 @@ void programTestDeque(int size, string fileName, int strategy){
 
     begin = std::chrono::steady_clock::now();
     cout << "- Naudojant deque: " << endl;
-    deque<StudentsFromFile> studentsDeque;
+    deque<Students> studentsDeque;
     readFromFile(studentsDeque, false, fileName);
     sort(studentsDeque.begin(), studentsDeque.end(), comepareTwoStudents);
 
